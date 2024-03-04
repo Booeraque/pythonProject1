@@ -112,7 +112,7 @@ if number % number2 == 0:
     result = "divided by the second number without digits after a dot."
 else:
     result = "divided by the second number with digits after a dot."
-    
+
 # Print the result
 print("The number is:", result)
 
@@ -163,7 +163,14 @@ side1 = float(input("Enter the length of side 1: "))
 side2 = float(input("Enter the length of side 2: "))
 side3 = float(input("Enter the length of side 3: "))
 
+# Check if the triangle can be drawn
+if ((side1 + side2) < side3) or ((side1 + side3) < side2) or ((side2 + side3) < side1):
+  triangle_draw = False
+else:
+  triangle_draw = True
+
 # Check the type of triangle
+if not triangle_draw: print("The triangle cannot be drawn")
 if side1 == side2 == side3:
     triangle_type = "Equilateral"
 elif side1 == side2 or side1 == side3 or side2 == side3:
@@ -171,15 +178,9 @@ elif side1 == side2 or side1 == side3 or side2 == side3:
 else:
     triangle_type = "Scalene"
 
-# Check if the triangle can be drawn
-if (side1 + side2) < side3 or (side1 + side 3) < side 2 or (side2 + side 3) < side 1:
-  triangle_draw = False
-else:
-  triangle_draw = True
-
 
 # Print the type of triangle
-print("The triangle is:", triangle_type + " and it is " + triangle_draw ? "possible"; "not possible" + "to draw it.")
+if triangle_draw: print("The triangle is possible to draw and it's type is:", triangle_type + ".")
 
 """7. Write a Python program that performs arithmetic operations on two numbers."""
 
@@ -207,7 +208,26 @@ print("Result:", result)
 Add a check to see if someone is trying to divide by zero, if so, give an appropriate message
 """
 
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+operation = input("Enter the operation (+, -, *, /): ")
+result = ''
 
+# Perform the operation
+if operation == "+":
+    result = num1 + num2
+elif operation == "-":
+    result = num1 - num2
+elif operation == "*":
+    result = num1 * num2
+elif operation == "/":
+  if num2 == 0: print("It is not possible to divide by zero!")
+  else: result = num1 / num2
+else:
+    result = "Invalid operation"
+
+# Print the result
+print("Result:", result)
 
 """Exercise 8. <br />
 Make a script out of all task and put it on GitHub
